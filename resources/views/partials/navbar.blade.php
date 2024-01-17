@@ -10,6 +10,7 @@
                     <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
                 </li>
             </ul>
+            @auth('web')
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('event.index')}}">Events</a>
@@ -25,6 +26,24 @@
                     <a class="nav-link active" aria-current="page" href="{{route('category.index')}}">Categories</a>
                 </li>
             </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('logout')}}">Logout</a>
+                    </li>
+                </ul>
+            @endauth
+            @guest('web')
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('register.index')}}">Registration</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('login')}}">Authentification</a>
+                </li>
+            </ul>
+            @endguest
         </div>
     </div>
 </nav>

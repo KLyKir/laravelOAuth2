@@ -11,10 +11,12 @@
     @else
         <td><a href = "{{route('event.show.update', ['id' => $event->id])}}">Update</a></td>
     @endif
-    @if(isset($user))
-        <td><a href = "{{route('user.delete.event', ['id' => $event->id])}}">Delete</a></td>
-    @else
-        <td><a href = "{{route('event.delete', ['id' => $event->id])}}">Delete</a></td>
-    @endif
+    @can('delete-event', $event)
+        @if(isset($user))
+            <td><a href = "{{route('user.delete.event', ['id' => $event->id])}}">Delete</a></td>
+        @else
+            <td><a href = "{{route('event.delete', ['id' => $event->id])}}">Delete</a></td>
+        @endif
+    @endcan
 </tr>
 
